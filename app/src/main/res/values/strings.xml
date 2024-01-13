@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">android-quiz</string>
+        <string-array name="category_options">
+            <item>Nouns</item>
+            <item>Body Parts</item>
+            <item>Present Simple</item>
+        </string-array>
+</resources>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quizowanie"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_green_light"
+        android:gravity="center_horizontal"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Twoja aplikacja do nauki angielskiego"
+        android:textColor="#333"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Witaj,"
+            android:textColor="#333"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="wybierz ilość pytań i zaczynajmy"
+            android:textColor="#333"
+            android:textSize="16sp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Spinner
+                android:id="@+id/categories_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/category_options"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/questions_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:hint="Ilośc pytań"
+                android:minHeight="48dp"
+                android:textColor="#333"
+                android:inputType="number"
+                android:textColorHint="#111" ></androidx.appcompat.widget.AppCompatEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+   <Button
+        android:id="@+id/btn_begin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/holo_green_light"
+        android:text="Rozpocznij quiz"
+        android:textSize="20sp"
+        android:textColor="#375201" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_learn_grammar"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Ucz się gramatyki" />
+
+            <Button
+                android:id="@+id/btn_learn_words"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Ucz się słówek" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
