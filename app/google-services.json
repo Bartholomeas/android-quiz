@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "896177310916",
+    "firebase_url": "https://quiz-app-adc74-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "quiz-app-adc74",
+    "storage_bucket": "quiz-app-adc74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896177310916:android:fc2ae9ad973365ffd20d91",
+        "android_client_info": {
+          "package_name": "com.example.android_quiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyU-osVm-Xsuog4rJLFyLucmbnctVEmvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

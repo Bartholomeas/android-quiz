@@ -11,31 +11,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidquiz"
         tools:targetApi="31">
-
+        <activity
+            android:name=".DrawerActivity"
+            android:exported="false" />
         <activity
             android:name=".VocabulariesActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GrammarTimeActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RulesActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExamplesActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".FinalViewActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBarTheme"
-            android:exported="false" />
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".QuestionsView"
             android:screenOrientation="portrait" />
@@ -45,7 +44,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

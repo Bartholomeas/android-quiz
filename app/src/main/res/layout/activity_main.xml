@@ -8,6 +8,14 @@
     android:orientation="vertical"
     android:gravity="center"
     >
+<!--<include layout="@layout/activity_drawer_base"/>-->
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
 
     <TextView
         android:id="@+id/tv_title"
@@ -56,12 +64,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
             <Spinner
                 android:id="@+id/categories_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/category_options"/>
+                android:entries="@array/category_options" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -110,6 +120,13 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Ucz się słówek" />
+
+            <Button
+                android:id="@+id/btn_add_record"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Dodaj do bazy" />
 
         </LinearLayout>
 
