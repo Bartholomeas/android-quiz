@@ -11,17 +11,17 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/default_answer_bg"
-            android:title="Home"/>
+            android:title="Panel główny"/>
 
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/selected_answer_bg"
-            android:title="Settings"/>
+            android:title="Gramatyka"/>
 
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/correct_answer_bg"
-            android:title="About"/>
+            android:title="Słówka"/>
 
     </group>
 
