@@ -1,6 +1,8 @@
 package com.example.android_quiz
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -19,10 +21,10 @@ class QuestionsView : AppCompatActivity(), View.OnClickListener {
     private var mCorrectAnswers: Int = 0
     private var mAllQuestions: String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions_view)
-
 
         val category = intent.getStringExtra(Questions.category)
         mAllQuestions = intent.getStringExtra(Questions.totalQuestions)
@@ -51,6 +53,7 @@ class QuestionsView : AppCompatActivity(), View.OnClickListener {
         submitButton.setOnClickListener(this)
 
     }
+
 
     private fun setQuestion() {
         val question = mQuestionsList!![mCurrentPosition - 1]
