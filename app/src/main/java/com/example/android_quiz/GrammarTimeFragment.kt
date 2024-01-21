@@ -1,32 +1,97 @@
 package com.example.android_quiz
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class GrammarTimeFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var grammarTimesAdapter: GrammarTimesAdapter
+    private val grammarTimesList = mutableListOf<GrammarTime>()
+
+    private val database: FirebaseDatabase by lazy {
+        FirebaseDatabase.getInstance(FirebaseApp.initializeApp(requireContext())!!)
     }
+    private val firebaseRef: DatabaseReference by lazy { database.getReference() }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_grammar, container, false)
+//        val firebaseBtn = view.findViewById<Button>(R.id.btn_add_to_firebase)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = GrammarTimesAdapter(getGrammarTimes())
+        grammarTimesAdapter = GrammarTimesAdapter(grammarTimesList)
+        recyclerView.adapter = grammarTimesAdapter
+
+        setupFirebaseListener()
+
+//        firebaseBtn.setOnClickListener {
+//            addGrammarTimesToFirebase()
+//        }
 
         return view
     }
+    private fun setupFirebaseListener() {
+        firebaseRef.child("grammar_times").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                grammarTimesList.clear()
 
-    private fun getGrammarTimes(): List<GrammarTime> {
+                for (itemSnapshot in snapshot.children) {
+                    val title = itemSnapshot.child("title").getValue(String::class.java)
+                    val description = itemSnapshot.child("description").getValue(String::class.java)
+                    val examples = itemSnapshot.child("examples").getValue(String::class.java)
+                    val rules = itemSnapshot.child("rules").getValue(String::class.java)
+
+                    if (title != null && description != null && examples != null && rules != null) {
+                        val grammarTime = GrammarTime(title, description, rules, examples)
+                        grammarTimesList.add(grammarTime)
+                    }
+                }
+
+                if (grammarTimesList.isNotEmpty()) {
+                    grammarTimesAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d("GrammarTimeFragment", "Lista jest pusta")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Obsługa błędów (opcjonalna)
+            }
+        })
+    }
+    private fun addGrammarTimesToFirebase() {
+        val grammarTimes = getGrammarTimes()
+        val grammarTimesMap = mutableMapOf<String, Any>()
+
+        for ((index, grammarTime) in grammarTimes.withIndex()) {
+            val key = "item_$index"
+            grammarTimesMap[key] = grammarTime
+        }
+
+        firebaseRef.child("grammar_times").updateChildren(grammarTimesMap)
+    }
+
+
+
+private fun getGrammarTimes(): List<GrammarTime> {
         return listOf(
             GrammarTime(
                 "Present Simple",
