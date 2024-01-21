@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_header_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
@@ -9,24 +10,43 @@
     android:background="@drawable/selected_answer_bg"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/wrong_answer_bg"/>
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="QuizApp"
-        android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:textAlignment="center"
+        android:textColor="#5EC333"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/correct_answers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Poprawnych:"
+        android:textAlignment="center"
+        android:textColor="#192912"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/all_answers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Z wszystkich: "
+        android:textAlignment="center"
+        android:textColor="#192912"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nav_results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="contact@quizapp.com"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"/>
 
 </LinearLayout>
